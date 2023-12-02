@@ -1,0 +1,78 @@
+'use client';
+
+import { motion } from 'framer-motion';
+import { useState } from 'react';
+import { useRouter } from 'next/navigation';
+
+import { HandleSubmit } from '../action';
+
+import Link from 'next/link';
+
+import AuthForm from '@/app/ui/auth/AuthForm';
+import FormInput from '@/app/ui/FormInput';
+
+import { AlertContainer, Alert } from '@/app/ui/Alert';
+
+export default function Page() {
+    const router = useRouter();
+    const [handleEclipse, setHandleEclipse] = useState<boolean>(true);
+    const [email, setEmail] = useState<string>("");
+    const [password, setPassword] = useState<string>("");
+    const [alert, setAlert] = useState<{ type: "error" | "info" | "success", text: string }[] | []>([]);
+
+    const handleLoginSubmit = async () => {
+        const isLoggedIn = await HandleSubmit({ type: "login", email: email, password: password });
+
+        if (!isLoggedIn) {
+            return setAlert((prev) => [...prev, { type: "error", text: "Error: Este usuario no existe" }]);
+        }
+
+        router.push(`/changeName`)
+    };
+
+    const handleFocus = () => {
+        setHandleEclipse(false);
+    };
+
+    const handleBlur = () => {
+        setHandleEclipse(true);
+    };
+
+    return (
+        <form action={handleLoginSubmit}>
+            <AuthForm
+                headerText="Inicia sesión"
+                animate={handleEclipse}
+                returnHref="/welcome"
+            >
+                <section className="flex w-full flex-col gap-5">
+                    <FormInput
+                        onChange={(e) => setEmail(e.target.value)}
+                        label="Correo electrónico"
+                        placeholder="yoru@catmail.com"
+                        type="email"
+                        required
+                    />
+                    <FormInput
+                        onChange={(e) => setPassword(e.target.value)}
+                        handleBlur={handleBlur}
+                        handleFocus={handleFocus}
+                        label="Contraseña"
+                        type="password"
+                        required
+                        placeholder="••••••••••"
+                    />
+                    <section className="flex w-full items-center justify-between text-indigo-300">
+                        <Link className='md:text-base text-xs' href={`#`}>He olvidado la contraseña</Link>
+                        <Link className='md:text-base text-xs' href={`/signUp`}>No tengo cuenta</Link>
+                    </section>
+                </section>
+            </AuthForm>
+            <AlertContainer>
+                {alert.map((alertItem, index) => (
+                    <Alert key={index} text={alertItem.text} type={alertItem.type} close></Alert>
+                ))}
+            </AlertContainer>
+        </form>
+    );
+}
