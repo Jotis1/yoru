@@ -1,3 +1,5 @@
+import { Analytics } from '@vercel/analytics/react';
+
 import type { Metadata } from 'next';
 
 import { ubuntu } from './lib/fonts';
@@ -18,6 +20,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${ubuntu.className} bg-zinc-950 antialiased`}>
         {children}
+        <Analytics />
       </body>
     </html>
   );
