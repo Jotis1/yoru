@@ -1,4 +1,4 @@
-import Alert from "./Alert";
-import AlertContainer from "./AlertContainer";
+import Alert from './Alert';
+import AlertContainer from './AlertContainer';
 
-export { AlertContainer, Alert }
+export { AlertContainer, Alert };

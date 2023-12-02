@@ -14,6 +14,16 @@ const config: Config = {
       fontSize: {
         96: '96px',
         20: '20px',
+        10: '10px',
+      },
+      keyframes: {
+        spin_slow: {
+          from: { transform: 'rotate(0deg)' },
+          to: { transform: 'rotate(360deg)' },
+        },
+      },
+      animation: {
+        'spin-slow': 'spin_slow 2000s linear infinite',
       },
       width: {
         500: '500px',

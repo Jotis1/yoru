@@ -15,31 +15,31 @@ function Background() {
     welcome: {
       opacity: 1,
       top: 'calc(-50% + 100px)',
-      bottom: "auto",
+      bottom: 'auto',
       left: '-50%',
       right: 'auto',
     },
     signUp: {
       opacity: 1,
-      top: "auto",
+      top: 'auto',
       bottom: 'calc(-50% - 100px)',
       right: '-50%',
-      left: "auto"
+      left: 'auto',
     },
     login: {
       opacity: 1,
-      top: "auto",
+      top: 'auto',
       bottom: 'calc(-50% - 100px)',
       right: '50%',
-      left: "auto"
+      left: 'auto',
     },
     changeName: {
       opacity: 1,
       top: 'calc(-50% + 100px)',
-      bottom: "auto",
+      bottom: 'auto',
       right: '-50%',
-      left: "auto"
-    }
+      left: 'auto',
+    },
   };
 
   useEffect(() => {
@@ -51,7 +51,11 @@ function Background() {
   }, [appear]);
 
   return (
-    <section className="relative h-screen w-screen overflow-hidden">
+    <motion.section
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1, transition: { delay: 0.8, duration: 1 } }}
+      className="relative h-screen w-screen overflow-hidden"
+    >
       <motion.section
         initial={{
           opacity: 0,
@@ -69,7 +73,7 @@ function Background() {
       >
         <section className="relative h-full w-full">
           <Image
-            className="object-cover"
+            className="animate-spin-slow select-none object-cover"
             alt="Background"
             fill
             src={`/SpaceBgWithMoon.svg`}
@@ -85,10 +89,10 @@ function Background() {
             duration: 2,
             delay: 2 + Math.random() * 0.5,
           }}
-          className="absolute h-2.5 w-2.5 rounded-full bg-zinc-200 shadow-[0_0px_20px_#e4e4e760]"
+          className="absolute h-2.5 w-2.5 rounded-full bg-white shadow-[0_0px_10px_#e4e4e7]"
         />
       )}
-    </section>
+    </motion.section>
   );
 }
 
