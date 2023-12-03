@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import Button from '../Button';
+import Button from '../../components/Button';
 export default function AuthHeader() {
   return (
     <section className='flex h-full w-full flex-col items-center justify-center gap-24 text-zinc-50'>

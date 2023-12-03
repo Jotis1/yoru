@@ -5,13 +5,10 @@ import { useRouter } from 'next/navigation';
 
 import { HandleSubmit } from '../action';
 
-import Link from 'next/link';
+import { PageComponents, Components } from '@/app/ui';
 
-import AuthForm from '@/app/ui/auth/AuthForm';
-import FormInput from '@/app/ui/FormInput';
-
-import { AlertContainer, Alert } from '@/app/ui/Alert';
-import LinkComponent from '@/app/ui/Link';
+const { AuthForm } = PageComponents.AuthComponents;
+const { Alert, FormInput, AlertContainer, LinkComponent } = Components;
 
 export default function Page() {
   const router = useRouter();

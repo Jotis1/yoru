@@ -1,8 +1,9 @@
 'use client';
 
-import Button from '../Button';
+import { ChevronLeftIcon } from '@heroicons/react/24/solid';
+import Button from '../../../components/Button';
 
-import PlanetsAnimation from './PlanetsAnimation';
+import PlanetsAnimation from '../animation/PlanetsAnimation';
 import { motion } from 'framer-motion';
 
 export default function AuthForm({
@@ -46,20 +47,7 @@ export default function AuthForm({
       </section>
       <section className='absolute left-2.5 top-2.5'>
         <Button isIcon type='light' isLink href={returnHref}>
-          <svg
-            xmlns='http://www.w3.org/2000/svg'
-            fill='none'
-            viewBox='0 0 24 24'
-            strokeWidth='1.5'
-            stroke='currentColor'
-            className='h-6 w-6'
-          >
-            <path
-              strokeLinecap='round'
-              strokeLinejoin='round'
-              d='M15.75 19.5L8.25 12l7.5-7.5'
-            />
-          </svg>
+          <ChevronLeftIcon className='h-5 w-5' />
         </Button>
       </section>
     </motion.section>

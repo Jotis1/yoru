@@ -6,7 +6,11 @@ const variants = {
   enter: { opacity: 1, scale: 1 },
 };
 
-export default function Template({ children }: { children: React.ReactNode }) {
+export default function TemplateAnimation({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <motion.main
       variants={variants}

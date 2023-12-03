@@ -4,10 +4,10 @@ import { useState } from 'react';
 
 import { HandleSubmit } from '../action';
 
-import LinkComponent from '@/app/ui/Link';
+import { Components, PageComponents } from '@/app/ui';
 
-import AuthForm from '@/app/ui/auth/AuthForm';
-import FormInput from '@/app/ui/FormInput';
+const { LinkComponent, FormInput } = Components;
+const { AuthForm } = PageComponents.AuthComponents;
 
 export default function Page() {
   const [handleEclipse, setHandleEclipse] = useState<boolean>(true);

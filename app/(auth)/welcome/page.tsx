@@ -1,4 +1,6 @@
-import AuthHeader from '@/app/ui/auth/AuthHeader';
+import { PageComponents } from '@/app/ui';
+
+const { AuthHeader } = PageComponents.AuthComponents;
 
 export default function Page() {
   return <AuthHeader />;

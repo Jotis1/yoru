@@ -27,7 +27,7 @@ const config: Config = {
       },
       width: {
         500: '500px',
-        250: "250px"
+        250: '250px',
       },
     },
   },
