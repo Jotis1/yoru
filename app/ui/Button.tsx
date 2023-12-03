@@ -33,10 +33,10 @@ export default function Button({
     },
   ]);
 
-  let scale = type === 'light' ? 1 : 1.05;
+  let scale = type === 'light' ? 1 : 1.1;
 
   return (
-    <motion.section whileHover={{ scale: scale }}>
+    <motion.section transition={{ ease: "easeInOut", duration: .2 }} whileHover={{ scale: scale }}>
       {isLink && href ? (
         <Link className={classN} href={href}>
           {children || text}
