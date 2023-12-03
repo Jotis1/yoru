@@ -11,7 +11,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <LevelBar level={50} />
       <section className='flex h-full w-full flex-grow items-center'>
         <HomeNav />
-        <TemplateAnimation>{children}</TemplateAnimation>
+        <section className='flex-grow'>
+          <TemplateAnimation>{children}</TemplateAnimation>
+        </section>
         <LeftNavigation />
       </section>
       <section className='absolute left-0 top-0 -z-[1] h-screen w-screen overflow-hidden'>

@@ -60,13 +60,11 @@ function Background() {
         {[0, 1, 2, 3].map((index) => (
           <section
             key={index}
-            className={`relative h-screen w-full animate-spin-slow ${
-              index % 2 == 0 && 'rotate-180'
-            }`}
+            className={`relative h-screen w-full animate-spin-slow`}
           >
             <Image
               fill
-              className='select-none object-cover'
+              className={`select-none object-cover ${index % 2 == 0 && 'rotate-180'}`}
               alt='Background'
               src={`/SpaceForHome.svg`}
             ></Image>
