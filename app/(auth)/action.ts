@@ -31,6 +31,12 @@ export async function HandleSubmit({
   return false;
 }
 
-export async function ChangeName({ name, user }: { name: string, user?: string }) {
+export async function ChangeName({
+  name,
+  user,
+}: {
+  name: string;
+  user?: string;
+}) {
   console.log(name);
 }

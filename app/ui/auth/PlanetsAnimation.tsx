@@ -54,16 +54,16 @@ export default function PlanetsAnimation({
   }, [showEclipse]);
 
   return (
-    <section className="relative h-14 w-40">
+    <section className='relative h-14 w-40'>
       <motion.span
         initial={variantsSun.isNotEclipse}
         animate={variantsSun[wetherIsEclipse]}
-        className="absolute h-full w-14 -translate-x-1/2 rounded-full bg-amber-500 drop-shadow-[0_0_10px_#F59E0B60]"
+        className='absolute h-full w-14 -translate-x-1/2 rounded-full bg-amber-500 drop-shadow-[0_0_10px_#F59E0B60]'
       />
       <motion.span
         initial={variantsMoon.isNotEclipse}
         animate={variantsMoon[wetherIsEclipse]}
-        className="absolute h-full w-14 translate-x-1/2 rounded-full border-r-[10px] border-zinc-300 bg-zinc-50 drop-shadow-[0_0_10px_#E4E4E760]"
+        className='absolute h-full w-14 translate-x-1/2 rounded-full border-r-[10px] border-zinc-300 bg-zinc-50 drop-shadow-[0_0_10px_#E4E4E760]'
       />
     </section>
   );

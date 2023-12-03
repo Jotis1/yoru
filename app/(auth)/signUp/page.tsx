@@ -4,7 +4,7 @@ import { useState } from 'react';
 
 import { HandleSubmit } from '../action';
 
-import Link from 'next/link';
+import LinkComponent from '@/app/ui/Link';
 
 import AuthForm from '@/app/ui/auth/AuthForm';
 import FormInput from '@/app/ui/FormInput';
@@ -35,41 +35,39 @@ export default function Page() {
   return (
     <form action={handleSignUpSubmit}>
       <AuthForm
-        headerText="Registrarse"
+        headerText='Registrarse'
         animate={handleEclipse}
-        returnHref="/welcome"
+        returnHref='/welcome'
       >
-        <section className="flex w-full flex-col gap-5">
+        <section className='flex w-full flex-col gap-5'>
           <FormInput
             onChange={(e) => setEmail(e.target.value)}
-            label="Correo electrónico"
-            placeholder="yoru@catmail.com"
-            type="email"
+            label='Correo electrónico'
+            placeholder='yoru@catmail.com'
+            type='email'
             required
           />
           <FormInput
             onChange={(e) => setPassword(e.target.value)}
             handleBlur={handleBlur}
             handleFocus={handleFocus}
-            label="Contraseña"
-            type="password"
+            label='Contraseña'
+            type='password'
             required
-            placeholder="••••••••••"
+            placeholder='••••••••••'
           />
           <FormInput
             onChange={(e) => setConfirmPassword(e.target.value)}
             handleBlur={handleBlur}
             handleFocus={handleFocus}
-            label="Repetir Contraseña"
-            name="passwordConfirm"
-            type="password"
+            label='Repetir Contraseña'
+            name='passwordConfirm'
+            type='password'
             required
-            placeholder="••••••••••"
+            placeholder='••••••••••'
           />
-          <section className="flex w-full items-center justify-end text-indigo-300">
-            <Link className="text-xs md:text-base" href={`/login`}>
-              Ya tengo cuenta
-            </Link>
+          <section className='flex w-full items-center justify-end '>
+            <LinkComponent href={`/login`}>Ya tengo cuenta</LinkComponent>
           </section>
         </section>
       </AuthForm>

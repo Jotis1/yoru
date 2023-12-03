@@ -17,7 +17,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang='en'>
       <body className={`${ubuntu.className} bg-zinc-950 antialiased`}>
         {children}
         <Analytics />

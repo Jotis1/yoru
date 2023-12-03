@@ -21,12 +21,12 @@ export default function AlertContainer({
 }) {
   return (
     <motion.section
-      initial="hidden"
-      animate="visible"
+      initial='hidden'
+      animate='visible'
       variants={container}
-      className="absolute bottom-0 right-0 flex flex-col items-end justify-end p-5"
+      className='absolute right-0 top-0 flex flex-col items-end justify-end p-5 lg:bottom-0'
     >
-      <section className="flex w-auto flex-col-reverse items-end gap-5">
+      <section className='flex w-auto flex-col-reverse items-end gap-5'>
         {children}
       </section>
     </motion.section>

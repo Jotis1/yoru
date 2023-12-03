@@ -11,6 +11,7 @@ import AuthForm from '@/app/ui/auth/AuthForm';
 import FormInput from '@/app/ui/FormInput';
 
 import { AlertContainer, Alert } from '@/app/ui/Alert';
+import LinkComponent from '@/app/ui/Link';
 
 export default function Page() {
   const router = useRouter();
@@ -30,7 +31,6 @@ export default function Page() {
 
     if (!isLoggedIn) {
       return setAlert((prev) => [
-        ...prev,
         { type: 'error', text: 'Error: Este usuario no existe' },
       ]);
     }
@@ -49,34 +49,30 @@ export default function Page() {
   return (
     <form action={handleLoginSubmit}>
       <AuthForm
-        headerText="Inicia sesión"
+        headerText='Inicia sesión'
         animate={handleEclipse}
-        returnHref="/welcome"
+        returnHref='/welcome'
       >
-        <section className="flex w-full flex-col gap-5">
+        <section className='flex w-full flex-col gap-5'>
           <FormInput
             onChange={(e) => setEmail(e.target.value)}
-            label="Correo electrónico"
-            placeholder="yoru@catmail.com"
-            type="email"
+            label='Correo electrónico'
+            placeholder='yoru@catmail.com'
+            type='email'
             required
           />
           <FormInput
             onChange={(e) => setPassword(e.target.value)}
             handleBlur={handleBlur}
             handleFocus={handleFocus}
-            label="Contraseña"
-            type="password"
+            label='Contraseña'
+            type='password'
             required
-            placeholder="••••••••••"
+            placeholder='••••••••••'
           />
-          <section className="flex w-full items-center justify-between text-indigo-300">
-            <Link className="text-xs md:text-base" href={`#`}>
-              He olvidado la contraseña
-            </Link>
-            <Link className="text-xs md:text-base" href={`/signUp`}>
-              No tengo cuenta
-            </Link>
+          <section className='flex w-full items-center justify-between'>
+            <LinkComponent href={`#`}>He olvidado la contraseña</LinkComponent>
+            <LinkComponent href={`/signUp`}>No tengo cuenta</LinkComponent>
           </section>
         </section>
       </AuthForm>

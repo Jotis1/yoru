@@ -10,9 +10,9 @@ export default function Template({ children }: { children: React.ReactNode }) {
   return (
     <motion.main
       variants={variants}
-      initial="hidden"
-      exit="hidden"
-      animate="enter"
+      initial='hidden'
+      exit='hidden'
+      animate='enter'
       transition={{ delay: 0.2, ease: 'easeInOut' }}
     >
       {children}

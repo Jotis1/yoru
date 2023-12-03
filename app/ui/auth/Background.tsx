@@ -54,7 +54,7 @@ function Background() {
     <motion.section
       initial={{ opacity: 0 }}
       animate={{ opacity: 1, transition: { delay: 0.8, duration: 1 } }}
-      className="relative h-screen w-screen overflow-hidden"
+      className='relative h-screen w-screen overflow-hidden'
     >
       <motion.section
         initial={{
@@ -69,12 +69,12 @@ function Background() {
           damping: 20,
           stiffness: 100,
         }}
-        className="absolute -z-[1] h-full w-full scale-[2]"
+        className='absolute -z-[1] h-full w-full scale-[2]'
       >
-        <section className="relative h-full w-full">
+        <section className='relative h-full w-full'>
           <Image
-            className="animate-spin-slow select-none object-cover"
-            alt="Background"
+            className='animate-spin-slow select-none object-cover'
+            alt='Background'
             fill
             src={`/SpaceBgWithMoon.svg`}
           />
@@ -89,7 +89,7 @@ function Background() {
             duration: 2,
             delay: 2 + Math.random() * 0.5,
           }}
-          className="absolute h-2.5 w-2.5 rounded-full bg-white shadow-[0_0px_10px_#e4e4e7]"
+          className='absolute h-2.5 w-2.5 rounded-full bg-white shadow-[0_0px_10px_#e4e4e7]'
         />
       )}
     </motion.section>
