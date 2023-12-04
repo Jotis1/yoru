@@ -6,8 +6,11 @@ import { PasswordAnimation } from '@/app/ui/animations';
 import { AuthInput } from "@/app/ui/forms";
 import { motion } from 'framer-motion';
 import { useState } from 'react';
+import { useFormStatus } from 'react-dom';
 
-export default function AuthForm({ type, pending }: { type: "login" | "signup", pending: boolean }) {
+export default function AuthForm({ type }: { type: "login" | "signup" }) {
+
+    const { pending } = useFormStatus();
 
     const header: string = type === "login" ? "Iniciar Sesión" : (type === "signup" ? "Registrarse" : "");
     const returnHref: string = type === "login" ? "/signup" : (type === "signup" ? "/login" : "");

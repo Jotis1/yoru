@@ -18,7 +18,6 @@ const initialState = {
 
 export default function Page() {
 
-  const { pending } = useFormStatus()
   const [state, formAction] = useFormState(loginWithEmailAndPassword, initialState)
 
   const router = useRouter();
@@ -29,7 +28,7 @@ export default function Page() {
 
   return (
     <form action={formAction}>
-      <AuthForm pending={pending} type="login" />
+      <AuthForm type="login" />
       <AlertContainer>
         {state.response?.ok === false && (
           <Alert type='error' text={state?.response?.message}></Alert>
