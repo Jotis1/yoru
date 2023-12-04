@@ -11,6 +11,8 @@ export async function loginWithEmailAndPassword(prevState: any, formdata: FormDa
     const emailField = formdata.get("email");
     const passwordField = formdata.get("password");
 
+    console.log(emailField + passwordField);
+
     if (!emailField || !passwordField) throw new Error("No puede haber campos vacíos");
     if (emailField instanceof File || passwordField instanceof File) throw new Error("El campo no puede ser un archivo");
 
