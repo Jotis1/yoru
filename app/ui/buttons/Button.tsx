@@ -5,8 +5,6 @@ import { clsx } from 'clsx';
 
 import { motion } from 'framer-motion';
 
-import { CloudIcon } from '@heroicons/react/24/solid';
-
 export default function Button({
   text,
   isLink,
