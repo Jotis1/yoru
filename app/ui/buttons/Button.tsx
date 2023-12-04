@@ -5,16 +5,20 @@ import { clsx } from 'clsx';
 
 import { motion } from 'framer-motion';
 
+import { CloudIcon } from '@heroicons/react/24/solid';
+
 export default function Button({
   text,
   isLink,
   href,
   onClick,
+  loading,
   type = 'outlined',
   isIcon,
   submit,
   children,
 }: {
+  loading?: boolean;
   isLink?: boolean;
   href?: string;
   text?: string;
@@ -24,7 +28,7 @@ export default function Button({
   submit?: boolean;
   isIcon?: boolean;
 }) {
-  const classN = clsx('flex h-10 items-center rounded-lg text-zinc-50', [
+  const classN = clsx('flex h-10 items-center rounded-lg text-zinc-50 transition-all', [
     {
       'px-5': !isIcon,
       'min-w-[40px] flex items-center justify-center': isIcon,
@@ -50,7 +54,12 @@ export default function Button({
           onClick={onClick}
           className={classN}
         >
-          {children || text}
+          {loading ? (
+
+            <CloudIcon className='animate-pulse w-5 h-5'></CloudIcon>
+          ) : (
+            <>{children || text}</>
+          )}
         </button>
       )}
     </motion.section>

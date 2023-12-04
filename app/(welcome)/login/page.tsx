@@ -29,7 +29,7 @@ export default function Page() {
 
   return (
     <form action={formAction}>
-      <AuthForm type="login" />
+      <AuthForm pending={pending} type="login" />
       <AlertContainer>
         {state.response?.ok === false && (
           <Alert type='error' text={state?.response?.message}></Alert>

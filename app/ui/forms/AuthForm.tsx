@@ -7,7 +7,7 @@ import { AuthInput } from "@/app/ui/forms";
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 
-export default function AuthForm({ type }: { type: "login" | "signup" }) {
+export default function AuthForm({ type, pending }: { type: "login" | "signup", pending: boolean }) {
 
     const header: string = type === "login" ? "Iniciar Sesión" : (type === "signup" ? "Registrarse" : "");
     const returnHref: string = type === "login" ? "/signup" : (type === "signup" ? "/login" : "");
@@ -25,7 +25,7 @@ export default function AuthForm({ type }: { type: "login" | "signup" }) {
                 <AuthInput
                     name="email"
                     label='Correo electrónico'
-                    placeholder='yoru@catmail.com'
+                    placeholder='ejemplo@tumail.com'
                     type='email'
                     required
                 />
@@ -59,12 +59,12 @@ export default function AuthForm({ type }: { type: "login" | "signup" }) {
                 </section>
             </section>
             <section className='text-center'>
-                <button
-                    type='submit'
-                    className='flex h-10 items-center rounded-lg border-2 border-zinc-50 px-5 text-zinc-50'
-                >
-                    Continuar
-                </button>
+                <Button
+                    loading={pending}
+                    submit
+                    type='outlined'
+                    text='Continuar'
+                />
             </section>
             <section className='absolute left-2.5 top-2.5'>
                 <Button isIcon type='light' isLink href='/welcome'>
