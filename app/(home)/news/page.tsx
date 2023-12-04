@@ -1,7 +1,3 @@
-import LinkComponent from '@/app/ui/components/Link';
-
-function Page() {
-  return <LinkComponent href='/achievements'>Ir abajo</LinkComponent>;
+export default function Page() {
+  return <p>Hola</p>
 }
-
-export default Page;

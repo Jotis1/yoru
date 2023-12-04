@@ -16,3 +16,4 @@
 - use-debounce
 - framer-motion
 - prettier
+- zod

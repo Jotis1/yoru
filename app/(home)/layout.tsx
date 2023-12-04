@@ -1,23 +1,19 @@
-import { PageComponents, Components, MotionComponents } from '../ui';
-
-const { HomeNav, LeftNavigation, Background } = PageComponents.HomeComponents;
-const { Nav, LevelBar } = Components;
-const { TemplateAnimation } = MotionComponents;
+import { PageTransitionAnimation, HomeLayoutAnimation } from "../ui/animations";
+import { PageNavigation, Topbar } from "@/app/ui/navigation";
+import { LevelProgress } from "@/app/ui/progress";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <main className='flex h-screen w-screen flex-col'>
-      <Nav />
-      <LevelBar level={50} />
-      <section className='flex h-full w-full flex-grow items-center'>
-        <HomeNav />
+      <Topbar />
+      <LevelProgress level={50} />
+      <PageNavigation>
         <section className='flex-grow'>
-          <TemplateAnimation>{children}</TemplateAnimation>
+          <PageTransitionAnimation>{children}</PageTransitionAnimation>
         </section>
-        <LeftNavigation />
-      </section>
+      </PageNavigation>
       <section className='absolute left-0 top-0 -z-[1] h-screen w-screen overflow-hidden'>
-        <Background />
+        <HomeLayoutAnimation />
       </section>
     </main>
   );
