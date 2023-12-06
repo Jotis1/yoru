@@ -4,7 +4,7 @@ import { LevelProgress } from "@/app/ui/progress";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <main className='flex h-screen w-screen flex-col'>
+    <main className={`flex h-screen w-screen flex-col`}>
       <Topbar />
       <LevelProgress level={50} />
       <PageNavigation>

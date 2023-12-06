@@ -44,10 +44,11 @@ export default function RightNav() {
                         drag
                         dragSnapToOrigin
                         dragConstraints={constraintsRef}
-                        className=' h-full w-full cursor-grab'
+                        className='relative h-full w-full cursor-grab'
                     >
                         <Image
                             className='selec-none rounded-lg object-cover'
+                            sizes='142'
                             fill
                             alt='Profile Picture'
                             src={`/Gato astronauta.jpg`}

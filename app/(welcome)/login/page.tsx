@@ -3,7 +3,7 @@
 import { loginWithEmailAndPassword } from '../action';
 import { AuthForm } from '@/app/ui/forms';
 
-import { useFormState, useFormStatus } from 'react-dom';
+import { useFormState } from 'react-dom';
 import { Alert, AlertContainer } from '@/app/ui/alert';
 import { useEffect } from 'react';
 

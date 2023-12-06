@@ -24,7 +24,7 @@ export async function loginWithEmailAndPassword(prevState: any, formdata: FormDa
     UserSchema.parse(data[0]);
     const userData: UserProps = data[0]
 
-    if (userData.password !== passwordField) throw new Error("Las contraseñas no coinciden");
+    if (userData.password !== passwordField) throw new Error("Contraseña incorrecta");
 
     revalidatePath("/login");
 

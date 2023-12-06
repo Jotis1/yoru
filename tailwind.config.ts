@@ -30,6 +30,9 @@ const config: Config = {
         250: '250px',
       },
     },
+    fontFamily: {
+      "sans": "Ubuntu"
+    }
   },
   plugins: [],
 };

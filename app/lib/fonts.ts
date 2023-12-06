@@ -3,6 +3,7 @@ import { Ubuntu, Ubuntu_Mono } from 'next/font/google';
 const ubuntu = Ubuntu({
   weight: ['300', '400', '500', '700'],
   subsets: ['latin'],
+  display: 'swap'
 });
 
 const ubuntuMono = Ubuntu_Mono({
