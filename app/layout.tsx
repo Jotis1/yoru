@@ -2,7 +2,7 @@ import { Analytics } from '@vercel/analytics/react';
 
 import type { Metadata } from 'next';
 
-import { ubuntu } from './lib/fonts';
+import { ubuntu } from '@/app/lib/fonts';
 
 import '@/app/ui/globals.css';
 

@@ -1,3 +1,3 @@
-import LevelProgress from "./LevelProgress";
+import LevelProgress from './LevelProgress';
 
-export { LevelProgress }
+export { LevelProgress };

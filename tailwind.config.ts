@@ -31,8 +31,8 @@ const config: Config = {
       },
     },
     fontFamily: {
-      "sans": "Ubuntu"
-    }
+      sans: 'Ubuntu',
+    },
   },
   plugins: [],
 };

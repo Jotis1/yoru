@@ -1,6 +1,6 @@
-import { PageTransitionAnimation, HomeLayoutAnimation } from "../ui/animations";
-import { PageNavigation, Topbar } from "@/app/ui/navigation";
-import { LevelProgress } from "@/app/ui/progress";
+import { PageTransitionAnimation, HomeLayoutAnimation } from '../ui/animations';
+import { PageNavigation, Topbar } from '@/app/ui/navigation';
+import { LevelProgress } from '@/app/ui/progress';
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (

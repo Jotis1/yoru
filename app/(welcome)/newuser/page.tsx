@@ -5,7 +5,6 @@ import { ShieldCheckIcon } from '@heroicons/react/24/solid';
 import { WelcomeForm } from '@/app/ui/forms';
 
 export default function Page() {
-
   return (
     <form>
       <section className='flex w-full flex-col gap-10 rounded-lg border-2 border-indigo-300 bg-zinc-900 px-5 py-5 sm:w-500'>
