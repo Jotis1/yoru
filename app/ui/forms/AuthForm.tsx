@@ -8,12 +8,11 @@ import { motion } from 'framer-motion';
 import { useState } from 'react';
 import { useFormStatus } from 'react-dom';
 
-import { useAuth } from '@/app/lib/context/auth_context';
+import { signIn } from "next-auth/react";
 
 import { FontAwesomeIcon as I } from '@fortawesome/react-fontawesome';
 import {
     faDiscord,
-    faGithub,
     faGoogle,
     faTwitch,
 } from '@fortawesome/free-brands-svg-icons';
@@ -54,11 +53,14 @@ export default function AuthForm({
             <section className='flex flex-col gap-10'>
                 <PasswordAnimation showEclipse={showPasswordAnimation} />
                 <section className='flex items-center justify-center gap-2.5'>
-                    <Button onClick={handleGoogleLogin} isIcon>
+                    <Button onClick={() => signIn("twitch", { callbackUrl: "/news" })} isIcon>
+                        <I icon={faTwitch}></I>
+                    </Button>
+                    <Button onClick={() => signIn("google", { callbackUrl: "/news" })} isIcon>
                         <I icon={faGoogle}></I>
                     </Button>
-                    <Button onClick={handleGithubLogin} isIcon>
-                        <I icon={faGithub}></I>
+                    <Button onClick={() => signIn("discord", { callbackUrl: "/news" })} isIcon>
+                        <I icon={faDiscord}></I>
                     </Button>
                 </section>
             </section>

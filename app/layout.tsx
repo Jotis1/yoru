@@ -4,6 +4,8 @@ import type { Metadata } from 'next';
 
 import { ubuntu } from '@/app/lib/fonts';
 
+import AuthProvider from '@/app/ui/providers/AuthProvider';
+
 import '@/app/ui/globals.css';
 
 export const metadata: Metadata = {
@@ -19,7 +21,9 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body className={`${ubuntu.className} bg-zinc-950 antialiased`}>
-        {children}
+        <AuthProvider>
+          {children}
+        </AuthProvider>
         <Analytics />
       </body>
     </html>

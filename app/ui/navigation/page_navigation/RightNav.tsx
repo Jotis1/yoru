@@ -7,6 +7,8 @@ import { usePathname } from 'next/navigation';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useRef } from 'react';
 
+import { useSession } from 'next-auth/react';
+
 function getPreviousAndNextRoutes(currentRoute: string, routes: string[]) {
   const currentIndex = routes.indexOf(currentRoute);
 
@@ -23,6 +25,8 @@ function getPreviousAndNextRoutes(currentRoute: string, routes: string[]) {
 export default function RightNav() {
   const pathname = usePathname();
   const routes = ['/news', '/achievements', '/poll', '/changelog'];
+
+  const { data: session } = useSession();
 
   const constraintsRef = useRef(null);
 
@@ -46,18 +50,21 @@ export default function RightNav() {
             dragConstraints={constraintsRef}
             className='relative h-full w-full cursor-grab'
           >
-            <Image
-              className='selec-none rounded-lg object-cover'
-              sizes='142'
-              fill
-              alt='Profile Picture'
-              src={`/Gato astronauta.jpg`}
-            ></Image>
+            {session?.user?.image && (
+              <Image
+                className='selec-none rounded-lg object-cover'
+                sizes='142'
+                fill
+                alt='Profile Picture'
+                src={session?.user?.image}
+              ></Image>
+            )
+            }
             <section className='absolute left-0 top-0 h-full w-full'></section>
           </motion.section>
         </figure>
         <section className='flex h-10 w-[150px] items-center justify-between rounded-lg bg-zinc-900 pl-2.5 font-medium text-zinc-50'>
-          <p>@jotis</p>
+          <p>{session?.user?.name}</p>
           <button className='flex h-full w-10 items-center justify-center text-zinc-500'>
             <svg
               xmlns='http://www.w3.org/2000/svg'
