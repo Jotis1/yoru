@@ -1,18 +1,6 @@
-'use client';
-
 import { Button } from '@/app/ui/buttons';
 
-import { useAuth } from '@/app/lib/context/auth_context';
-import { useEffect } from 'react';
-
 export default function Page() {
-  const { currentUser, setCurrentUser } = useAuth();
-
-  useEffect(() => {
-    if (currentUser) {
-      return console.log(currentUser.uid);
-    }
-  }, [currentUser]);
 
   return (
     <section className='flex h-full w-full flex-col items-center justify-center gap-24 text-zinc-50'>
