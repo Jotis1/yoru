@@ -13,7 +13,7 @@ export default function Page() {
         </p>
       </header>
       <section className='text-center'>
-        <Button isLink href={`/signup`} text=' Comenzar la aventura' />
+        <Button isLink href={`/login`} text=' Comenzar la aventura' />
       </section>
     </section>
   );

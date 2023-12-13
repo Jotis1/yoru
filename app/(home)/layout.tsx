@@ -2,9 +2,11 @@ import { PageTransitionAnimation, HomeLayoutAnimation } from '../ui/animations';
 import { PageNavigation, Topbar } from '@/app/ui/navigation';
 import { LevelProgress } from '@/app/ui/progress';
 
+import { ubuntu } from '../lib/fonts';
+
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <main className={`flex h-screen w-screen flex-col`}>
+    <main className={`${ubuntu.className} flex h-screen w-screen flex-col`}>
       <Topbar />
       <LevelProgress level={50} />
       <PageNavigation>
