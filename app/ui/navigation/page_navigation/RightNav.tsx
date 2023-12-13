@@ -58,13 +58,14 @@ export default function RightNav() {
                 alt='Profile Picture'
                 src={session?.user?.image}
               ></Image>
-            )
-            }
+            )}
             <section className='absolute left-0 top-0 h-full w-full'></section>
           </motion.section>
         </figure>
-        <section className='flex h-10 w-[150px] items-center justify-between rounded-lg bg-zinc-900 pl-2.5 font-medium text-zinc-50'>
-          <p>{session?.user?.name}</p>
+        <section className='flex text-sm h-10 w-[150px] items-center justify-between rounded-lg bg-zinc-900 pl-2.5 font-medium text-zinc-50'>
+          <p>{(session?.user?.name?.split("#")[0])}
+            <span className='text-zinc-400'>#{(session?.user?.name?.split("#")[1])}</span>
+          </p>
           <button className='flex h-full w-10 items-center justify-center text-zinc-500'>
             <svg
               xmlns='http://www.w3.org/2000/svg'

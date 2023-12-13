@@ -19,13 +19,6 @@ export default function WelcomeLayoutAnimation() {
       left: '-50%',
       right: 'auto',
     },
-    signup: {
-      opacity: 1,
-      top: 'auto',
-      bottom: 'calc(-50% - 100px)',
-      right: '-50%',
-      left: 'auto',
-    },
     login: {
       opacity: 1,
       top: 'auto',
@@ -33,7 +26,7 @@ export default function WelcomeLayoutAnimation() {
       right: '50%',
       left: 'auto',
     },
-    changename: {
+    new_user: {
       opacity: 1,
       top: 'calc(-50% + 100px)',
       bottom: 'auto',

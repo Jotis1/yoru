@@ -1,7 +1,6 @@
 import { Button } from '@/app/ui/buttons';
 
 export default function Page() {
-
   return (
     <section className='flex h-full w-full flex-col items-center justify-center gap-24 text-zinc-50'>
       <header className='select-none text-center drop-shadow-[0_0_10px_#E4E4E740]'>

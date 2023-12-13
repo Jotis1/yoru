@@ -1,4 +1,4 @@
-import { SpeedInsights } from "@vercel/speed-insights/next"
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 import type { Metadata } from 'next';
 
@@ -21,9 +21,7 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body className={`${ubuntu.className} bg-zinc-950 antialiased`}>
-        <AuthProvider>
-          {children}
-        </AuthProvider>
+        <AuthProvider>{children}</AuthProvider>
         <SpeedInsights />
       </body>
     </html>

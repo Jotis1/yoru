@@ -44,7 +44,7 @@ export type EmailProps = z.infer<typeof EmailSchema>;
 export const UserSchema = z.object({
   createdAt: z.string().datetime(),
   username: z.string(),
-  avatar: z.string().url(),
+  avatar: z.string().url().nullish(),
   password: z.string(),
   email: EmailSchema,
   id: z.string(),
@@ -57,21 +57,21 @@ export const MongoDBUserSchema = z.object({
   _id: z.string().uuid(),
   name: z.string().min(3),
   nickname: z.string().min(1).max(25),
-  joined: z.string().datetime(),
-  level: z.number().int().min(1).max(100),
+  joined: z.date(),
+  level: z.number().int().min(0).max(100),
   images: z.object({
-    avatar: z.string().url(),
-    banner: z.string().url(),
+    avatar: z.string().url().nullish(),
+    banner: z.string().url().nullish(),
   }),
   about: z.string().max(250),
   xp: z.number().int().min(0),
   social: z.object({
-    twitter: z.string().url(),
-    instagram: z.string().url(),
-    facebook: z.string().url(),
-    discord: z.string().url(),
-    twitch: z.string().url(),
-    youtube: z.string().url(),
+    twitter: z.string().url().nullish(),
+    instagram: z.string().url().nullish(),
+    facebook: z.string().url().nullish(),
+    discord: z.string().url().nullish(),
+    twitch: z.string().url().nullish(),
+    youtube: z.string().url().nullish(),
   }),
   stats: z.object({
     anime: z.object({
@@ -104,13 +104,13 @@ export const MongoDBUserSchema = z.object({
     language_to_show: LanguageToShowSchema,
   }),
   conexions: z.object({
-    crunchyroll: z.string().url(),
-    funimation: z.string().url(),
-    netflix: z.string().url(),
-    amazon: z.string().url(),
-    hulu: z.string().url(),
-    vrv: z.string().url(),
-    disney: z.string().url(),
+    crunchyroll: z.string().url().nullish(),
+    funimation: z.string().url().nullish(),
+    netflix: z.string().url().nullish(),
+    amazon: z.string().url().nullish(),
+    hulu: z.string().url().nullish(),
+    vrv: z.string().url().nullish(),
+    disney: z.string().url().nullish(),
   }),
   notifications: z.object({
     newsletter: z.boolean(),
@@ -140,107 +140,8 @@ export const MongoDBUserSchema = z.object({
   collection: z.array(z.string().uuid()),
   wishlist: z.array(z.string().uuid()),
   coins: z.number().int().min(0),
-  last_claimed: z.string().datetime(),
+  last_claimed: z.date().nullish(),
   servers: z.array(z.string().uuid()),
   email: EmailSchema,
   country: CountrySchema,
 });
-
-const user: z.infer<typeof MongoDBUserSchema> = {
-  _id: '123456789',
-  name: 'John Doe',
-  nickname: 'johndoe',
-  joined: '2022-01-01T00:00:00Z',
-  level: 50,
-  images: {
-    avatar: 'https://example.com/avatar.jpg',
-    banner: 'https://example.com/banner.jpg',
-  },
-  about: 'I am a software developer',
-  xp: 1000,
-  social: {
-    twitter: 'https://twitter.com/johndoe',
-    instagram: 'https://instagram.com/johndoe',
-    facebook: 'https://facebook.com/johndoe',
-    discord: 'https://discord.gg/johndoe',
-    twitch: 'https://twitch.tv/johndoe',
-    youtube: 'https://youtube.com/johndoe',
-  },
-  stats: {
-    anime: {
-      watched: 100,
-      days_watched: 10,
-      average_score: 8,
-    },
-    manga: {
-      read: 50,
-      days_read: 5,
-      average_score: 7,
-    },
-    gacha: {
-      packs_opened: 20,
-      claimed: 10,
-    },
-  },
-  permissions: {
-    is_admin: false,
-    is_moderator: true,
-    is_verified: true,
-    is_premium: false,
-    is_banned: false,
-  },
-  is_private: false,
-  is_friend: true,
-  personalization: {
-    theme: 'dark',
-    primary_color: 'purple',
-    language_to_show: 'english',
-  },
-  conexions: {
-    crunchyroll: 'https://crunchyroll.com/johndoe',
-    funimation: 'https://funimation.com/johndoe',
-    netflix: 'https://netflix.com/johndoe',
-    amazon: 'https://amazon.com/johndoe',
-    hulu: 'https://hulu.com/johndoe',
-    vrv: 'https://vrv.com/johndoe',
-    disney: 'https://disney.com/johndoe',
-  },
-  notifications: {
-    newsletter: true,
-    email: true,
-    push: true,
-  },
-  nsfw: {
-    show_on_profile: true,
-    show: true,
-  },
-  privacy: {
-    restrict_messages_to_friends: true,
-  },
-  inbox: {
-    messages: ['message1', 'message2'],
-    notifications: ['notification1', 'notification2'],
-  },
-  friends: ['friend1', 'friend2'],
-  favourites: {
-    anime: ['anime1', 'anime2'],
-    manga: ['manga1', 'manga2'],
-    characters: ['character1', 'character2'],
-    staff: ['staff1', 'staff2'],
-    studios: ['studio1', 'studio2'],
-  },
-  achievements: ['achievement1', 'achievement2'],
-  collection: ['item1', 'item2'],
-  wishlist: ['item3', 'item4'],
-  coins: 100,
-  last_claimed: '2022-01-01T12:00:00Z',
-  servers: ['server1', 'server2'],
-  email: 'johndoe@example.com',
-  country: 'ES',
-};
-
-MongoDBUserSchema.parse(user);
-
-function makeSchemaOptional<T extends z.ZodTypeAny>(schema: T) {
-  const res = schema.safeParse(user);
-}
